@@ -147,7 +147,6 @@ impl TaskManager {
     pub fn increase_sys_call(&self, syscall_id: usize) {
         let mut inner = self.inner.exclusive_access();
         let current = inner.current_task;
-        //判断
         if syscall_id < MAX_SYSCALL_NUM {
             inner.tasks[current].sys_call_times[syscall_id] += 1; // 增加系统调用次数
         }
